@@ -22,7 +22,7 @@ const BlinkCursor = styled.strong`
 `;
 
 const Motto = () => {
-  const mottos = Object.freeze(["KNOWLEDGE.", "BEST PRACTICES.", "INNOVATION."]);
+  const mottos = Object.freeze(["KNOWLEDGE.", "BEST PRACTICES.", "INNOVATION.", "CRAFTMANSHIP."]);
   const text = useTypingEffect(mottos);
   return (
     <Box justifyContent="center" flexDirection="column" display="flex">
