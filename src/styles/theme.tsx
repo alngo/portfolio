@@ -5,10 +5,10 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#556cd6"
+      main: "#fff"
     },
     secondary: {
-      main: "#19857b"
+      main: "#424242"
     },
     error: {
       main: red.A400
@@ -21,6 +21,12 @@ const theme = createMuiTheme({
     MuiContainer: {
       root: {
         height: "inherit"
+      }
+    },
+    MuiGrid: {
+      root: {
+        height: "inherit",
+        display: "flex"
       }
     }
   }

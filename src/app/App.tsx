@@ -1,21 +1,13 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import Motto from "app/components/motto/"
 
 function App() {
   return (
-    <Container >
-      <Grid direction="column" alignItems="center">
-        <Box height="100%">
-          <Typography variant="h3" color="primary">
-            <strong>Seek.</strong>
-          </Typography>
-          <Typography variant="h2" color="secondary">
-            <strong>KNOWLEDGE</strong>
-          </Typography>
-        </Box>
+    <Container>
+      <Grid item xs={12} sm={8} md={5} >
+		<Motto/>
       </Grid>
     </Container>
   );
