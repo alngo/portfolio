@@ -1,8 +1,7 @@
 import React from "react";
-import {sleep} from "app/utils/";
+import { sleep } from "app/utils/";
 
 const useTypingEffect = (
-  list: readonly string[] = [],
   typing_speed: number = 100,
   erasing_speed: number = 60,
   pause: number = 3000
@@ -10,12 +9,18 @@ const useTypingEffect = (
   const [text, setRet] = React.useState("");
 
   React.useEffect(() => {
+    const mottos = Object.freeze([
+      "KNOWLEDGE.",
+      "BEST PRACTICES.",
+      "INNOVATION.",
+      "CRAFTMANSHIP."
+    ]);
 
     const typing = async () => {
       let index = 0;
       let text = "";
       while (true) {
-        let word = list[index];
+        let word = mottos[index];
         for (let i = 0, len = word.length; i < len; i++) {
           await sleep(typing_speed);
           text = text.concat(word[i]);
@@ -27,7 +32,7 @@ const useTypingEffect = (
           text = text.slice(0, i);
           setRet(text);
         }
-        index = (index + 1) % list.length;
+        index = (index + 1) % mottos.length;
       }
     };
 

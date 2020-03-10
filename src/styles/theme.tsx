@@ -13,14 +13,12 @@ const theme = createMuiTheme({
     error: {
       main: red.A400
     },
-    background: {
-      default: "#101010"
-    }
   },
   overrides: {
     MuiContainer: {
       root: {
-        height: "inherit"
+        height: "inherit",
+		display: "flex"
       }
     },
     MuiGrid: {
