@@ -1,4 +1,4 @@
-import { clamp, randomVelocity } from "./math";
+import { clamp, randomVelocity, distance } from "./math";
 
 class Particle {
   pos: { [key: string]: number };
@@ -6,6 +6,7 @@ class Particle {
   velocity: number;
   lifetime: number;
   radius: number;
+  color: string;
   canvas: HTMLCanvasElement;
 
   constructor(
@@ -13,17 +14,19 @@ class Particle {
     radius: number,
     velocity: number,
     lifetime: number,
+    color: string,
     canvas: HTMLCanvasElement
   ) {
     this.pos = pos;
     this.velocity = velocity;
     this.dir = {
-		x: randomVelocity(this.velocity),
-		y: randomVelocity(this.velocity),
-		z: randomVelocity(this.velocity)
+      x: randomVelocity(this.velocity),
+      y: randomVelocity(this.velocity),
+      z: randomVelocity(this.velocity)
     };
     this.radius = radius;
     this.lifetime = lifetime;
+    this.color = color;
     this.canvas = canvas;
   }
 
@@ -36,15 +39,34 @@ class Particle {
   }
 
   move = () => {
-    this.pos.x += this.dir.x ;
-    this.pos.y += this.dir.y ;
+    this.pos.x += this.dir.x;
+    this.pos.y += this.dir.y;
+  };
+
+  connect = (particles: Particle[]) => {
+    let context = this.canvas.getContext("2d");
+    if (context) {
+      particles.forEach(particle => {
+        if (
+          distance(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y) < 100
+        ) {
+          if (context) {
+            context.beginPath();
+            context.strokeStyle = this.color + "25"
+            context.moveTo(this.pos.x, this.pos.y);
+            context.lineTo(particle.pos.x, particle.pos.y);
+            context.stroke();
+          }
+        }
+      });
+    }
   };
 
   render = () => {
     let context = this.canvas.getContext("2d");
     if (context) {
       context.beginPath();
-      context.fillStyle = `rgba(255,255,255,${clamp(this.pos.z, 0, 255)})`;
+      context.fillStyle = this.color;
       context.arc(
         this.pos.x,
         this.pos.y,

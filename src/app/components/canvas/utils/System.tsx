@@ -1,5 +1,5 @@
 import Particle from "./Particle";
-import { randomRange } from "./math";
+import { randomRange, randomColor } from "./math";
 
 class System {
   max_particles: number;
@@ -44,6 +44,7 @@ class System {
           1,
           0.05,
           1000,
+          randomColor(),
           this.canvas
         )
       );
@@ -56,6 +57,7 @@ class System {
     this.particles.forEach(particle => {
       particle.move();
       particle.render();
+      particle.connect(this.particles);
       particle.decline();
     });
     this.remove_dead_particles();

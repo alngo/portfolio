@@ -7,6 +7,7 @@ import Navigation from "app/components/navigation/";
 
 const useStyles = makeStyles({
   root: {
+    position: "relative",
     zIndex: 1
   }
 });
