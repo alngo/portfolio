@@ -23,9 +23,14 @@ const Canvas = () => {
 
   React.useEffect(() => {
     const canvas = canvas_ref.current;
+
     if (canvas) {
-      let particle_system = new System(10, canvas);
-      particle_system.loop();
+		let particle_system = new System(42, canvas);
+		let ctx = canvas.getContext("2d");
+		if (ctx) {
+			ctx.globalCompositeOperation='destination-over';
+			particle_system.start_animation();
+		}
     }
   });
 
