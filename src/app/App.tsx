@@ -1,12 +1,21 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Motto from "app/components/motto/";
 import Navigation from "app/components/navigation/";
 
+const useStyles = makeStyles({
+  root: {
+    zIndex: 1
+  }
+});
+
 function App() {
+  const classes = useStyles();
+
   return (
-    <Container>
+    <Container classes={{ root: classes.root }}>
       <Grid item xs={12} sm={8} md={8}>
         <Motto />
       </Grid>

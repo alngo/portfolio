@@ -1,13 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledCanvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-`;
+import System from "./utils/System";
 
 const Canvas = () => {
   const canvas_ref = React.createRef<HTMLCanvasElement>();
@@ -18,17 +10,26 @@ const Canvas = () => {
       if (canvas) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        canvas.style.position = "absolute";
       }
     };
 
     window.addEventListener("resize", resize_canvas);
-
+    resize_canvas();
     return () => {
       window.removeEventListener("resize", resize_canvas);
     };
   });
 
-  return <StyledCanvas ref={canvas_ref}></StyledCanvas>;
+  React.useEffect(() => {
+    const canvas = canvas_ref.current;
+    if (canvas) {
+      let particle_system = new System(10, canvas);
+      particle_system.loop();
+    }
+  });
+
+  return <canvas ref={canvas_ref} width={1024} height={600} />;
 };
 
 export default Canvas;
