@@ -21,7 +21,6 @@ function App() {
         <Motto />
       </Grid>
       <Grid item xs={12} sm={4} md={4}>
-        <Navigation />
       </Grid>
     </Container>
   );
