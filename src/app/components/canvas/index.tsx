@@ -11,6 +11,8 @@ const Canvas = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         canvas.style.position = "absolute";
+        canvas.style.width = "100vw";
+        canvas.style.height = "100vh";
       }
     };
 
@@ -25,16 +27,12 @@ const Canvas = () => {
     const canvas = canvas_ref.current;
 
     if (canvas) {
-		let particle_system = new System(80, canvas);
-		let ctx = canvas.getContext("2d");
-		if (ctx) {
-			ctx.globalCompositeOperation='destination-over';
-			particle_system.start_animation();
-		}
+      let particle_system = new System(80, canvas);
+      particle_system.start_animation();
     }
   });
 
-  return <canvas ref={canvas_ref} width={1024} height={600} />;
+  return <canvas ref={canvas_ref} width={100} height={100} />;
 };
 
 export default Canvas;

@@ -13,7 +13,7 @@ const useTypingEffect = (
       "KNOWLEDGE.",
       "BEST PRACTICES.",
       "INNOVATION.",
-      "STATE OF THE ART.",
+      "STATE OF ART.",
       "EFFIENCY.",
       "IMPROVEMENTS."
     ]);
