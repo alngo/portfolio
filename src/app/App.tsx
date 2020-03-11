@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Motto from "app/components/motto/";
-import Navigation from "app/components/navigation/";
 
 const useStyles = makeStyles({
   root: {
