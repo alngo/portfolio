@@ -1,4 +1,4 @@
-import { clamp, randomVelocity, distance } from "./math";
+import { randomVelocity, distance } from "./math";
 
 class Particle {
   pos: { [key: string]: number };

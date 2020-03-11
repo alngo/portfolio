@@ -25,6 +25,9 @@ const Motto = () => {
   const text = useTypingEffect();
   return (
     <Box justifyContent="center" flexDirection="column" display="flex">
+      <Typography variant="caption" color="primary">
+        Junior software craftman
+      </Typography>
       <Typography variant="h3" color="secondary">
         <strong>Seek</strong>
       </Typography>
