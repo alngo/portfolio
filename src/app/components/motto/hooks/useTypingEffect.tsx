@@ -13,7 +13,9 @@ const useTypingEffect = (
       "KNOWLEDGE.",
       "BEST PRACTICES.",
       "INNOVATION.",
-      "CRAFTMANSHIP."
+      "STATE OF THE ART.",
+      "EFFIENCY.",
+      "IMPROVEMENTS."
     ]);
 
     const typing = async () => {
