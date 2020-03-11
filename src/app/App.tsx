@@ -19,8 +19,6 @@ function App() {
       <Grid item xs={12} sm={8} md={8}>
         <Motto />
       </Grid>
-      <Grid item xs={12} sm={4} md={4}>
-      </Grid>
     </Container>
   );
 }

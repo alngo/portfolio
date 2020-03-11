@@ -2,8 +2,8 @@ import React from "react";
 import { sleep } from "app/utils/";
 
 const useTypingEffect = (
-  typing_speed: number = 100,
-  erasing_speed: number = 60,
+  typing_speed: number = 84,
+  erasing_speed: number = 21,
   pause: number = 3000
 ) => {
   const [text, setRet] = React.useState("");
@@ -13,7 +13,9 @@ const useTypingEffect = (
       "KNOWLEDGE.",
       "BEST PRACTICES.",
       "INNOVATION.",
-      "CRAFTMANSHIP."
+      "STATE OF ART.",
+      "EFFIENCY.",
+      "IMPROVEMENTS."
     ]);
 
     const typing = async () => {
