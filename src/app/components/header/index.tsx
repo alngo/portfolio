@@ -1,15 +1,33 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography"
+import { makeStyles } from "@material-ui/core/styles";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import Toolbar from "@material-ui/core/Toolbar";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
-const Header = () => {
-	return (
-		<div>
-			<Typography color="primary">
-				header
-			</Typography>
-		</div>
-	)
+const useStyles = makeStyles({
+  header: {},
+  grow: {
+    flexGrow: 1
+  }
+});
 
-}
+const Header = (props: RouteComponentProps) => {
+  const classes = useStyles();
 
-export default Header;
+  return (
+    <AppBar position="fixed" color="transparent" className={classes.header}>
+      <Toolbar>
+        <Button color="primary" onClick={() => props.history.push("/")}>
+          home
+        </Button>
+        <Button color="primary" onClick={() => props.history.push("/about")}>
+          about
+        </Button>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default withRouter(Header);

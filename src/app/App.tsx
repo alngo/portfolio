@@ -1,10 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Route, Switch } from "react-router-dom";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import About from "app/components/about/";
 import Motto from "app/components/motto/";
 import Footer from "app/components/footer/";
-import Header from "app/components/header/";
+import Navigation from "app/components/header/";
 
 const useStyles = makeStyles({
   root: {
@@ -19,10 +20,15 @@ function App() {
   return (
     <React.Fragment>
       <Container classes={{ root: classes.root }}>
-        <Header />
-        <Grid item xs={12} sm={8} md={8}>
-          <Motto />
-        </Grid>
+        <Navigation />
+        <Switch>
+          <Route exact path="/">
+            <Motto />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
         <Footer />
       </Container>
     </React.Fragment>
